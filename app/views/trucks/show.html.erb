@@ -2,12 +2,10 @@
 <!-- Slider
 ================================================== -->
 <div class="listing-slider mfp-gallery-container margin-bottom-0">
-	<a href="/img/stock/single-listing-01.jpg" data-background-image="/img/stock/single-listing-01.jpg" class="item mfp-gallery" title="Title 1"></a>
-	<a href="/img/stock/single-listing-02.jpg" data-background-image="/img/stock/single-listing-02.jpg" class="item mfp-gallery" title="Title 3"></a>
-	<a href="/img/stock/single-listing-03.jpg" data-background-image="/img/stock/single-listing-03.jpg" class="item mfp-gallery" title="Title 2"></a>
-	<a href="/img/stock/single-listing-04.jpg" data-background-image="/img/stock/single-listing-04.jpg" class="item mfp-gallery" title="Title 4"></a>
+<% for i in 1..4 do %>
+	<a href="/img/trucks/<%= @truck.id %>/<%= i %>.jpg" data-background-image="/img/trucks/<%= @truck.id %>/<%= i %>.jpg" class="item mfp-gallery" title="Photo <%= i %>"></a>
+<% end %>
 </div>
-
 
 <!-- Content
 ================================================== -->
@@ -42,10 +40,7 @@
 
 				<!-- Description -->
 
-				<p>
-					 <%= @truck.bio %>
-				</p>
-
+				<%= simple_format(@truck.bio) %>
 
 				<!-- Listing Contacts -->
 				<div class="listing-links-container">
