@@ -56,7 +56,21 @@
 			<!-- Right Side Content / End -->
 			<div class="right-side">
 				<div class="header-widget">
+        <% if current_user %>
+          <!-- User Menu -->
+					<div class="user-menu">
+						<div class="user-name"><span><img src="/img/stock/dashboard-avatar-p.jpg" alt=""></span>Hi, <%= current_user.name %>!</div>
+						<ul>
+							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
+							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
+							<li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> Bookings</a></li>
+							<li><a href="/logout"><i class="sl sl-icon-power"></i> Logout</a></li>
+						</ul>
+					</div>
+
+        <% else %>
 					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
+        <% end %>
           <!-- R: Add listing -->
 
 				</div>
@@ -82,72 +96,41 @@
 
 						<!-- Login -->
 						<div class="tab-content" id="tab1" style="display: none;">
-							<form method="post" class="login" action="/login">
-
-								<p class="form-row form-row-wide">
-									<label for="username">Username:
-										<i class="im im-icon-Male"></i>
-										<input type="text" class="input-text" name="username" id="username" value="" />
-									</label>
-								</p>
-
-								<p class="form-row form-row-wide">
-									<label for="password">Password:
-										<i class="im im-icon-Lock-2"></i>
-										<input class="input-text" type="password" name="password" id="password"/>
-									</label>
-									<span class="lost_password">
-										<a href="#" >Lost Your Password?</a>
-									</span>
-								</p>
-
-								<div class="form-row">
-									<input type="submit" class="button border margin-top-5" name="login" value="Login" />
-									<div class="checkboxes margin-top-10">
-										<input id="remember-me" type="checkbox" name="check">
-										<label for="remember-me">Remember Me</label>
-									</div>
-								</div>
-
-							</form>
+            <%= form_tag '/login' do %>
+              <label for="username">Email:
+                <i class="im im-icon-Mail"></i>
+                <%= text_field_tag :email %>
+              </label>
+              <label for="password">Password:
+                <i class="im im-icon-Lock-2"></i>
+                <%= password_field_tag :password %>
+              </label>
+              <%= submit_tag "Submit" %>
+            <% end %>
+            <!-- TODO: Remember me checkbox -->
 						</div>
 
 						<!-- Register -->
 						<div class="tab-content" id="tab2" style="display: none;">
-
-							<form method="post" class="register">
-
-							<p class="form-row form-row-wide">
-								<label for="username2">Username:
-									<i class="im im-icon-Male"></i>
-									<input type="text" class="input-text" name="username" id="username2" value="" />
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="email2">Email Address:
-									<i class="im im-icon-Mail"></i>
-									<input type="text" class="input-text" name="email" id="email2" value="" />
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password1">Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password1" id="password1"/>
-								</label>
-							</p>
-
-							<p class="form-row form-row-wide">
-								<label for="password2">Repeat Password:
-									<i class="im im-icon-Lock-2"></i>
-									<input class="input-text" type="password" name="password2" id="password2"/>
-								</label>
-							</p>
-
-							<input type="submit" class="button border fw margin-top-10" name="register" value="Register" />
-
-							</form>
+            <%= form_for :user, url: '/users' do |f| %>
+              <label for="name">Username:
+                <i class="im im-icon-Male"></i>
+                <%= f.text_field :name %>
+              </label>
+              <label for="email">Email Address:
+                <i class="im im-icon-Mail"></i>
+                <%= f.text_field :email %>
+              </label>
+              <label for="password">Password:
+                <i class="im im-icon-Lock-2"></i>
+                <%= f.password_field :password %>
+              </label>
+              <label for="password_confirmation">Password Confirmation:
+                <i class="im im-icon-Lock-2"></i>
+                <%= f.password_field :password_confirmation %>
+              </label>
+              <%= f.submit "Register" %>
+            <% end %>
 						</div>
 
 					</div>
