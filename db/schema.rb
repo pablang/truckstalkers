@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_135515) do
+ActiveRecord::Schema.define(version: 2019_09_16_074058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "truck_id"
+    t.text "body"
+    t.integer "service_rating"
+    t.integer "value_rating"
+    t.integer "cleanliness_rating"
+    t.integer "food_rating"
+    t.float "average_rating"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "trucks", force: :cascade do |t|
     t.text "name"

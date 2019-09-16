@@ -994,7 +994,7 @@ $(document).ready(function(){
 
 					// Refresh sotrable script
 					$(".slots-container").sortable('refresh');
-			} 
+			}
 
 			// Validation Error
 			else {
@@ -1012,14 +1012,14 @@ $(document).ready(function(){
 				daySlots.find(".no-slots")
 						.addClass("no-slots-fadein")
 						.removeClass("no-slots-fadeout");
-			} 
+			}
 		}
 		hideSlotInfo();
 
 
 		// Removing Slot
 	    daySlots.find('.remove-slot').bind('click', function() {
-			$(this).closest('.single-slot').animate({height: 0, opacity: 0}, 'fast', function() { 
+			$(this).closest('.single-slot').animate({height: 0, opacity: 0}, 'fast', function() {
 				$(this).remove();
 			});
 
@@ -1037,7 +1037,7 @@ $(document).ready(function(){
 				daySlots.find(".no-slots")
 						.removeClass("no-slots-fadein")
 						.addClass("no-slots-fadeout");
-			} 
+			}
 		});
 
     });
@@ -1059,7 +1059,7 @@ $(document).ready(function(){
 	      var picker = $(this),
 	          p = picker.find('button:last-child'),
 	          m = picker.find('button:first-child'),
-	          input = picker.find('input'),                 
+	          input = picker.find('input'),
 	          min = parseInt(input.attr('min'), 10),
 	          max = parseInt(input.attr('max'), 10),
 	          inputFunc = function(picker) {
@@ -1070,7 +1070,7 @@ $(document).ready(function(){
 	              m.prop(dis, true);
 	            } else if (i >= max) {
 	              input.val(max);
-	              p.prop(dis, true); 
+	              p.prop(dis, true);
 	              m.prop(dis, false);
 	            } else {
 	              p.prop(dis, false);
@@ -1538,7 +1538,11 @@ function starRating(ratingElem) {
 		var oneHalfStar = starsOutput('star','star half','star empty','star empty','star empty');
 		var oneStar = starsOutput('star','star empty','star empty','star empty','star empty');
 
+		var halfStar = starsOutput('star half','star empty','star empty','star empty','star empty');
+		var zeroStar = starsOutput('star empty','star empty','star empty','star empty','star empty');
+
 		// Rules
+
         if (dataRating >= 4.75) {
             $(this).append(fiveStars);
         } else if (dataRating >= 4.25) {
@@ -1555,10 +1559,14 @@ function starRating(ratingElem) {
             $(this).append(twoStars);
         } else if (dataRating >= 1.25) {
             $(this).append(oneHalfStar);
-        } else if (dataRating < 1.25) {
+        } else if (dataRating >= 0.5) {
             $(this).append(oneStar);
+        } else if (dataRating > 0) {
+            $(this).append(halfStar);
+        } else if (dataRating == 0) {
+            $(this).append(zeroStar);
         }
 
-	});
+  });
 
 } starRating('.star-rating');
