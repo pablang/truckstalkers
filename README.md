@@ -1,24 +1,30 @@
-# README
+# Truckstalkers WIP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Truckstalkers is a web app that allows users to search for nearby or favourite foodtrucks.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+This project is a ruby on rails application.
 
-* System dependencies
+To open the project run the follwoing in the command line:
 
-* Configuration
+`bundle install`
 
-* Database creation
+Open files in your ide
 
-* Database initialization
+To start the local server type the following in the command line:
 
-* How to run the test suite
+`rails server`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Technology used
 
-* ...
+- Ruby v2.6.3
+- Rails v5.2.3 - framework
+- postgreSQL - database
+- bcrypt - password encryption
+
+## Features
+
+- Map of truck locations
+
