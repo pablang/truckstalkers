@@ -50,3 +50,56 @@ trucks = [
 trucks.each do |t|
   Truck.create(t)
 end
+
+users = [
+  { name: 'Pammy',
+    email: 'pammy@example.com',
+    password: 'abcd'
+  },
+  { name: 'Miguel',
+    email: 'miguel@example.com',
+    password: 'abcd'
+  },
+  { name: 'Frankie',
+    email: 'frankie@example.com',
+    password: 'abcd'
+  },
+]
+
+users.each do |t|
+  User.create(t)
+end
+
+reviews = [
+  { truck_id: 1,
+    body: 'Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.',
+    service_rating: 3,
+    value_rating: 2,
+    cleanliness_rating: 2,
+    food_rating: 3,
+    average_rating: 2.5,
+    user_id: 1
+  },
+  { truck_id: 1,
+    body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
+    service_rating: 4,
+    value_rating: 3,
+    cleanliness_rating: 5,
+    food_rating: 5,
+    average_rating: 4.25,
+    user_id: 2
+  },
+  { truck_id: 1,
+    body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
+    service_rating: 1,
+    value_rating: 4,
+    cleanliness_rating: 3,
+    food_rating: 3,
+    average_rating: 2.75,
+    user_id: 3
+  },
+]
+
+reviews.each do |t|
+  Review.create(t)
+end
