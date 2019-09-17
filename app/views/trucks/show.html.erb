@@ -21,8 +21,8 @@
 						<%= @truck.tagline %>
 					</span>
           <!-- R: star reviews -->
-					<div class="star-rating" data-rating="<%= @truck.reviews_summary[:average_rating].round(1) %>">
-						<div class="rating-counter"><a href="#listing-reviews">(<%= @truck.reviews.count %>)</a></div>
+					<div class="star-rating" data-rating="<%= @reviews_summary[:average_rating].round(1) %>">
+						<div class="rating-counter"><a href="#listing-reviews">(<%= @reviews.count %>)</a></div>
 					</div>
 
 				</div>
@@ -144,64 +144,63 @@
 
 			<!-- Reviews -->
 			<div id="listing-reviews" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(<%= @truck.reviews.count %>)</span></h3>
+				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(<%= @reviews.count %>)</span></h3>
 
 				<!-- Rating Overview -->
 				<div class="rating-overview">
 					<div class="rating-overview-box">
-						<span class="rating-overview-box-total"><%= @truck.reviews_summary[:average_rating].round(1) %></span>
+						<span class="rating-overview-box-total"><%= @reviews_summary[:average_rating].round(1) %></span>
 						<span class="rating-overview-box-percent">out of 5.0</span>
-						<div class="star-rating" data-rating="<%= @truck.reviews_summary[:average_rating].round(1) %>"></div>
+						<div class="star-rating" data-rating="<%= @reviews_summary[:average_rating].round(1) %>"></div>
 					</div>
 
 					<div class="rating-bars">
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:service_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:service_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:service_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:service_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Value for Money <i class="tip" data-tip-content="Overall experience received for the amount spent"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:value_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:value_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:value_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:value_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Food <i class="tip" data-tip-content="Overall taste and presentation of the food"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:food_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:food_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:food_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:food_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Cleanliness <i class="tip" data-tip-content="The physical condition of the business"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:cleanliness_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:cleanliness_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:cleanliness_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:cleanliness_rating].round(1) %></strong>
 								</span>
 							</div>
 					</div>
 				</div>
 				<!-- Rating Overview / End -->
 
-
 				<div class="clearfix"></div>
 
 				<!-- Reviews -->
 				<section class="comments listing-reviews">
-					<ul>
-						<% @truck.reviews.each do |review|%>
+					<ul id="reviews-list">
+						<% @reviews.each do |review|%>
 						<li>
 							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 							<div class="comment-content"><div class="arrow-comment"></div>
@@ -221,6 +220,7 @@
 
 
 			<!-- Add Review Box -->
+
 			<div id="add-review" class="add-review-box">
 
 				<!-- Add Review -->
@@ -325,42 +325,16 @@
 				</div>
 				<!-- Subratings Container / End -->
 
-				<!-- Review Comment -->
-				<form id="add-comment" class="add-comment">
-					<fieldset>
-
-						<div class="row">
-							<div class="col-md-6">
-								<label>Name:</label>
-								<input type="text" value=""/>
-							</div>
-
-							<div class="col-md-6">
-								<label>Email:</label>
-								<input type="text" value=""/>
-							</div>
-						</div>
-
-						<div>
-							<label>Review:</label>
-							<textarea cols="40" rows="3"></textarea>
-						</div>
-
-					</fieldset>
-
-					<button class="button">Submit Review</button>
-					<div class="clearfix"></div>
-				</form>
-
+				<%= form_with model: @review, url: api_reviews_path, data: {'js-review-form' => true}, html: {class: "add-comment", id: "add-comment"} do |f| %>
+					<%= f.hidden_field :truck_id, value: @truck[:id] %>
+					<%= f.label :body, "Review" %>
+					<%= f.text_area :body, size: '40x3' %>
+					<%= f.submit "Submit Review" %>
+				<% end %>
 			</div>
 			<!-- Add Review Box / End -->
-
-
 		</div>
-
-
-
-		</div>
+	</div>
 
 
 		<!-- Sidebar
@@ -431,6 +405,5 @@
 
 		</div>
 		<!-- Sidebar / End -->
-
 	</div>
 </div>
