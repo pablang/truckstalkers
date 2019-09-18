@@ -135,25 +135,24 @@
 		<div class="col-md-12">
 			<div class="simple-slick-carousel dots-nav">
 
-      <% for item in @trucks %>
+      <% @trucks.each do |truck| %>
         <!-- Listing Item -->
         <div class="carousel-item">
-          <a href="/trucks/<%= item.id %>" class="listing-item-container">
+          <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-              <img src="/img/trucks/<%= item.id %>/1.jpg" alt="">
-
+            <%= image_tag(truck.photos.first.path)%>
               <!-- R: No open tag -->
 
               <div class="listing-item-content">
                 <!-- R: Tag -->
-                <h3><%= item.name %></h3>
-                <span><%= item.tagline %></span>
+                <h3><%= truck.name %></h3>
+                <span><%= truck.tagline %></span>
               </div>
               <span class="like-icon"></span>
             </div>
             <!--  Ratings -->
-						<div class="star-rating" data-rating="<%= item.reviews_summary[:average_rating].round(1) %>">
-							<div class="rating-counter">(<%= item.reviews.count %> reviews)</div>
+						<div class="star-rating" data-rating="<%= truck.reviews_summary[:average_rating].round(1) %>">
+							<div class="rating-counter">(<%= truck.reviews.count %> reviews)</div>
 						</div>
           </a>
         </div>

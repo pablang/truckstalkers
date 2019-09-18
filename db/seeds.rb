@@ -103,3 +103,61 @@ reviews = [
 reviews.each do |t|
   Review.create(t)
 end
+
+photos = [
+  {
+    truck_id: 1, path: '/img/trucks/1/1.jpg',
+  },
+  {
+    truck_id: 1, path: '/img/trucks/1/2.jpg',
+  },
+  {
+    truck_id: 1, path: '/img/trucks/1/3.jpg',
+  },
+  {
+    truck_id: 1, path: '/img/trucks/1/4.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/1.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/2.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/3.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/4.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/5.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/6.jpg',
+  },
+  {
+    truck_id: 2, path: '/img/trucks/2/7.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/1.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/2.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/3.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/4.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/5.jpg',
+  },
+  {
+    truck_id: 3, path: '/img/trucks/3/6.jpg',
+  },
+]
+
+photos.each do |t|
+  Photo.create(t)
+end
