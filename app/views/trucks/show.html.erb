@@ -21,8 +21,8 @@
 						<%= @truck.tagline %>
 					</span>
           <!-- R: star reviews -->
-					<div class="star-rating" data-rating="<%= @truck.reviews_summary[:average_rating].round(1) %>">
-						<div class="rating-counter"><a href="#listing-reviews">(<%= @truck.reviews.count %>)</a></div>
+					<div class="star-rating" data-rating="<%= @reviews_summary[:average_rating].round(1) %>">
+						<div class="rating-counter"><a href="#listing-reviews">(<%= @reviews.count %>)</a></div>
 					</div>
 
 				</div>
@@ -144,64 +144,63 @@
 
 			<!-- Reviews -->
 			<div id="listing-reviews" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(<%= @truck.reviews.count %>)</span></h3>
+				<h3 class="listing-desc-headline margin-top-75 margin-bottom-20">Reviews <span>(<%= @reviews.count %>)</span></h3>
 
 				<!-- Rating Overview -->
 				<div class="rating-overview">
 					<div class="rating-overview-box">
-						<span class="rating-overview-box-total"><%= @truck.reviews_summary[:average_rating].round(1) %></span>
+						<span class="rating-overview-box-total"><%= @reviews_summary[:average_rating].round(1) %></span>
 						<span class="rating-overview-box-percent">out of 5.0</span>
-						<div class="star-rating" data-rating="<%= @truck.reviews_summary[:average_rating].round(1) %>"></div>
+						<div class="star-rating" data-rating="<%= @reviews_summary[:average_rating].round(1) %>"></div>
 					</div>
 
 					<div class="rating-bars">
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:service_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:service_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:service_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:service_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Value for Money <i class="tip" data-tip-content="Overall experience received for the amount spent"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:value_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:value_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:value_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:value_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Food <i class="tip" data-tip-content="Overall taste and presentation of the food"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:food_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:food_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:food_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:food_rating].round(1) %></strong>
 								</span>
 							</div>
 							<div class="rating-bars-item">
 								<span class="rating-bars-name">Cleanliness <i class="tip" data-tip-content="The physical condition of the business"></i></span>
 								<span class="rating-bars-inner">
-									<span class="rating-bars-rating" data-rating="<%= @truck.reviews_summary[:cleanliness_rating].round(1) %>">
+									<span class="rating-bars-rating" data-rating="<%= @reviews_summary[:cleanliness_rating].round(1) %>">
 										<span class="rating-bars-rating-inner"></span>
 									</span>
-									<strong><%= @truck.reviews_summary[:cleanliness_rating].round(1) %></strong>
+									<strong><%= @reviews_summary[:cleanliness_rating].round(1) %></strong>
 								</span>
 							</div>
 					</div>
 				</div>
 				<!-- Rating Overview / End -->
 
-
 				<div class="clearfix"></div>
 
 				<!-- Reviews -->
 				<section class="comments listing-reviews">
-					<ul>
-						<% @truck.reviews.each do |review|%>
+					<ul id="reviews-list">
+						<% @reviews.each do |review|%>
 						<li>
 							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
 							<div class="comment-content"><div class="arrow-comment"></div>
@@ -221,146 +220,85 @@
 
 
 			<!-- Add Review Box -->
+
 			<div id="add-review" class="add-review-box">
 
 				<!-- Add Review -->
 				<h3 class="listing-desc-headline margin-bottom-10">Add Review</h3>
 				<p class="comment-notes">Your email address will not be published.</p>
 
-				<!-- Subratings Container -->
-				<div class="sub-ratings-container">
+				<%= form_with model: @review, url: api_reviews_path, data: {'js-review-form' => true}, html: {class: "add-comment", id: "add-comment"} do |f| %>
+					<%= f.hidden_field :truck_id, value: @truck[:id] %>
 
-					<!-- Subrating #1 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-1" value="1"/>
-								<label for="rating-1" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-2" value="2"/>
-								<label for="rating-2" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-3" value="3"/>
-								<label for="rating-3" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-4" value="4"/>
-								<label for="rating-4" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-5" value="5"/>
-								<label for="rating-5" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Subrating #2 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Value for Money <i class="tip" data-tip-content="Overall experience received for the amount spent"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-11" value="1"/>
-								<label for="rating-11" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-12" value="2"/>
-								<label for="rating-12" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-13" value="3"/>
-								<label for="rating-13" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-14" value="4"/>
-								<label for="rating-14" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-15" value="5"/>
-								<label for="rating-15" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Subrating #3 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Location <i class="tip" data-tip-content="Visibility, commute or nearby parking spots"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-21" value="1"/>
-								<label for="rating-21" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-22" value="2"/>
-								<label for="rating-22" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-23" value="3"/>
-								<label for="rating-23" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-24" value="4"/>
-								<label for="rating-24" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-25" value="5"/>
-								<label for="rating-25" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Subrating #4 -->
-					<div class="add-sub-rating">
-						<div class="sub-rating-title">Cleanliness <i class="tip" data-tip-content="The physical condition of the business"></i></div>
-						<div class="sub-rating-stars">
-							<!-- Leave Rating -->
-							<div class="clearfix"></div>
-							<form class="leave-rating">
-								<input type="radio" name="rating" id="rating-31" value="1"/>
-								<label for="rating-31" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-32" value="2"/>
-								<label for="rating-32" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-33" value="3"/>
-								<label for="rating-33" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-34" value="4"/>
-								<label for="rating-34" class="fa fa-star"></label>
-								<input type="radio" name="rating" id="rating-35" value="5"/>
-								<label for="rating-35" class="fa fa-star"></label>
-							</form>
-						</div>
-					</div>
-
-					<!-- Uplaod Photos -->
-	                <div class="uploadButton margin-top-15">
-	                    <input class="uploadButton-input" type="file"  name="attachments[]" accept="image/*, application/pdf" id="upload" multiple/>
-	                    <label class="uploadButton-button ripple-effect" for="upload">Add Photos</label>
-	                    <span class="uploadButton-file-name"></span>
-	                </div>
-	                <!-- Uplaod Photos / End -->
-
-				</div>
-				<!-- Subratings Container / End -->
-
-				<!-- Review Comment -->
-				<form id="add-comment" class="add-comment">
-					<fieldset>
-
-						<div class="row">
-							<div class="col-md-6">
-								<label>Name:</label>
-								<input type="text" value=""/>
-							</div>
-
-							<div class="col-md-6">
-								<label>Email:</label>
-								<input type="text" value=""/>
+					<div class="sub-ratings-container">
+						<!-- Subrating #1 -->
+						<div class="add-sub-rating">
+							<div class="sub-rating-title">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></div>
+							<div class="sub-rating-stars">
+								<!-- Leave Rating -->
+								<div class="clearfix"></div>
+								<div class="leave-rating">
+									<%  (1..5).reverse_each do |i| %>
+										<%= f.radio_button :service_rating, i %>
+										<%= label_tag "review_service_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+									<% end %>
+								</div>
 							</div>
 						</div>
 
-						<div>
-							<label>Review:</label>
-							<textarea cols="40" rows="3"></textarea>
+						<!-- Subrating #2 -->
+						<div class="add-sub-rating">
+							<div class="sub-rating-title">Value for Money <i class="tip" data-tip-content="Overall experience for the amount you paid"></i></div>
+							<div class="sub-rating-stars">
+								<!-- Leave Rating -->
+								<div class="clearfix"></div>
+								<div class="leave-rating">
+									<%  (1..5).reverse_each do |i| %>
+										<%= f.radio_button :value_rating, i %>
+										<%= label_tag "review_value_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+									<% end %>
+								</div>
+							</div>
 						</div>
 
-					</fieldset>
+						<!-- Subrating #3 -->
+						<div class="add-sub-rating">
+							<div class="sub-rating-title">Food <i class="tip" data-tip-content="Overall taste and presentation of food"></i></div>
+							<div class="sub-rating-stars">
+								<!-- Leave Rating -->
+								<div class="clearfix"></div>
+								<div class="leave-rating">
+									<%  (1..5).reverse_each do |i| %>
+										<%= f.radio_button :food_rating, i %>
+										<%= label_tag "review_food_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+									<% end %>
+								</div>
+							</div>
+						</div>
+						<!-- Subrating #4 -->
+						<div class="add-sub-rating">
+							<div class="sub-rating-title">Cleanliness <i class="tip" data-tip-content="Physical condition of the business"></i></div>
+							<div class="sub-rating-stars">
+								<!-- Leave Rating -->
+								<div class="clearfix"></div>
+								<div class="leave-rating">
+									<%  (1..5).reverse_each do |i| %>
+										<%= f.radio_button :cleanliness_rating, i %>
+										<%= label_tag "review_cleanliness_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+									<% end %>
+								</div>
+							</div>
+					<!-- sub-ratings-container -->
+					</div>
 
-					<button class="button">Submit Review</button>
-					<div class="clearfix"></div>
-				</form>
-
+					<%= f.label :body, "Review" %>
+					<%= f.text_area :body, size: '40x3' %>
+					<%= f.submit "Submit Review" %>
+				<% end %>
 			</div>
 			<!-- Add Review Box / End -->
-
-
 		</div>
-
-
-
-		</div>
+	</div>
 
 
 		<!-- Sidebar
@@ -431,6 +369,5 @@
 
 		</div>
 		<!-- Sidebar / End -->
-
 	</div>
 </div>
