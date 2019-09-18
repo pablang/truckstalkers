@@ -1509,9 +1509,7 @@ function numericalRating(ratingElem) {
 /*  Star Rating
 /*--------------------------*/
 function starRating(ratingElem) {
-
 	$(ratingElem).each(function() {
-
 		var dataRating = $(this).attr('data-rating');
 
 		// Rating Stars Output
