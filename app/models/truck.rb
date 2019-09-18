@@ -2,6 +2,7 @@
 
 class Truck < ApplicationRecord
   has_many :reviews
+  has_many :photos
 
   def reviews_summary
     summary = {
