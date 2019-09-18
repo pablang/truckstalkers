@@ -1,7 +1,7 @@
 
 <!-- Map
 ================================================== -->
-<div id="map-container" class="fullwidth-home-map">
+<%# <div id="map-container" class="fullwidth-home-map">
 
     <div id="map" data-map-zoom="9">
         <!-- map goes here -->
@@ -48,13 +48,13 @@
 
     <!-- Scroll Enabling Button -->
 	<a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>
-</div>
+</div> %>
 
 
 <!-- Content
 ================================================== -->
 
-<div class="container">
+<%# <div class="container">
 	<div class="row">
 
 		<div class="col-md-12">
@@ -64,11 +64,11 @@
 		</div>
 
 	</div>
-</div>
+</div> %>
 
 
 <!-- Category Boxes -->
-<div class="container">
+<%# <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="categories-boxes-container margin-top-5 margin-bottom-30">
@@ -118,7 +118,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> %>
 <!-- Category Boxes / End -->
 
 <!-- Listings -->
@@ -127,20 +127,19 @@
 
 		<div class="col-md-12">
 			<h3 class="headline centered margin-bottom-45">
-				Most Popular Foodtrucks
+				Popular Foodtrucks
 				<span>Discover top-rated local foodtrucks</span>
 			</h3>
 		</div>
 
 		<div class="col-md-12">
 			<div class="simple-slick-carousel dots-nav">
-
-      <% @trucks.each do |truck| %>
         <!-- Listing Item -->
+      <% @trucks.each do |truck| %>
         <div class="carousel-item">
           <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-            <%= image_tag(truck.photos.first.path)%>
+            <%= image_tag(truck.photos.first.path) if truck.photos.first %>
               <!-- R: No open tag -->
 
               <div class="listing-item-content">
@@ -156,15 +155,47 @@
 						</div>
           </a>
         </div>
-        <!-- Listing Item / End -->
       <% end %>
-
-
+        <!-- Listing Item / End -->
 			</div>
-
 		</div>
 
 	</div>
+
+<!-- Grid layout listings -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="headline centered margin-bottom-45">
+          All Foodtrucks
+          <span>Choose from many local Foodtrucks</span>
+        </h3>
+      </div>
+      <!-- Listing Item -->
+      <% @trucks.each do |truck| %>
+        <div class="col-lg-4 col-md-6">
+          <a href="/trucks/<%= truck.id %>" class="listing-item-container">
+            <div class="listing-item">
+              <%= image_tag(truck.photos.first.path) if truck.photos.first %>
+
+              <%# <div class="listing-badge now-open">Now Open</div> %>
+
+              <div class="listing-item-content">
+
+                <h3><%= truck.name %></h3>
+                <span><%= truck.tagline %></span>
+              </div>
+              <span class="like-icon"></span>
+            </div>
+            <div class="star-rating" data-rating="<%= truck.reviews_summary[:average_rating].round(1) %>">
+							<div class="rating-counter">(<%= truck.reviews.count %> reviews)</div>
+						</div>
+          </a>
+        </div>
+      <% end %>
+      <!-- Listing Item / End -->
+
+    </div>
+
 </div>
 <!-- Listings / End -->
 
