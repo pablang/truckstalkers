@@ -106,55 +106,55 @@ end
 
 photos = [
   {
-    truck_id: 1, path: '1.jpg',
+    truck_id: 1, path: '1.jpg', is_logo: false
   },
   {
-    truck_id: 1, path: '2.jpg',
+    truck_id: 1, path: '2.jpg', is_logo: false
   },
   {
-    truck_id: 1, path: '3.jpg',
+    truck_id: 1, path: '3.jpg', is_logo: false
   },
   {
-    truck_id: 1, path: '4.jpg',
+    truck_id: 1, path: '4.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '1.jpg',
+    truck_id: 2, path: '1.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '2.jpg',
+    truck_id: 2, path: '2.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '3.jpg',
+    truck_id: 2, path: '3.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '4.jpg',
+    truck_id: 2, path: '4.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '5.jpg',
+    truck_id: 2, path: '5.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '6.jpg',
+    truck_id: 2, path: '6.jpg', is_logo: false
   },
   {
-    truck_id: 2, path: '7.jpg',
+    truck_id: 2, path: '7.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '1.jpg',
+    truck_id: 3, path: '1.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '2.jpg',
+    truck_id: 3, path: '2.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '3.jpg',
+    truck_id: 3, path: '3.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '4.jpg',
+    truck_id: 3, path: '4.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '5.jpg',
+    truck_id: 3, path: '5.jpg', is_logo: false
   },
   {
-    truck_id: 3, path: '6.jpg',
+    truck_id: 3, path: '6.jpg', is_logo: false
   },
 ]
 
