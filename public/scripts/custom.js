@@ -31,20 +31,22 @@ $(document).ready(function(){
 				var mmenuAPI = $(".mmenu-init").data( "mmenu" );
 				var $icon = $(".hamburger");
 
-				$(".mmenu-trigger").click(function() {
-					mmenuAPI.open();
-				});
+				if (mmenuAPI) {
+					$(".mmenu-trigger").click(function() {
+						mmenuAPI.open();
+					});
 
-				mmenuAPI.bind( "open:finish", function() {
-				   setTimeout(function() {
-				      $icon.addClass( "is-active" );
-				   });
-				});
-				mmenuAPI.bind( "close:finish", function() {
-				   setTimeout(function() {
-				      $icon.removeClass( "is-active" );
-				   });
-				});
+					mmenuAPI.bind( "open:finish", function() {
+						setTimeout(function() {
+								$icon.addClass( "is-active" );
+						});
+					});
+					mmenuAPI.bind( "close:finish", function() {
+						setTimeout(function() {
+								$icon.removeClass( "is-active" );
+						});
+					});
+				};
 
 
 			}
@@ -355,8 +357,8 @@ $(document).ready(function(){
     /*  Magnific Popup
     /*----------------------------------------------------*/
 
+if (typeof $('.popup-with-zoom-anim').magnificPopup === "function"){
 	$('.mfp-gallery-container').each(function() { // the containers for all your galleries
-
 		$(this).magnificPopup({
 			 type: 'image',
 			 delegate: 'a.mfp-gallery',
@@ -375,6 +377,7 @@ $(document).ready(function(){
 			 gallery:{enabled:true, tCounter: ''}
 		});
 	});
+
 
 	$('.popup-with-zoom-anim').magnificPopup({
 		 type: 'inline',
@@ -410,13 +413,13 @@ $(document).ready(function(){
 
 		 fixedContentPos: false
 	});
-
+}
 
 
    	/*----------------------------------------------------*/
     /*  Slick Carousel
     /*----------------------------------------------------*/
-
+if (typeof $('.fullwidth-slick-carousel').slick === "function") {
 	$('.fullwidth-slick-carousel').slick({
 	  centerMode: true,
 	  centerPadding: '20%',
@@ -454,6 +457,7 @@ $(document).ready(function(){
 		}
 	  ]
 	});
+
 	// Fix for carousel if there are less than 4 categories
     $(window).on('load resize', function(e) {
         var carouselListItems = $(".fullwidth-slick-carousel .fw-carousel-item").length;
@@ -628,7 +632,7 @@ $(document).ready(function(){
 		    }
 	  ]
 	});
-
+}
 
 	/*----------------------------------------------------*/
 	/*  Tabs
@@ -1219,7 +1223,7 @@ $(document).ready(function(){
         }
     });
 
-
+if (typeof $('input[type="range"].distance-radius').rangeslider === "function") {
 	$('input[type="range"].distance-radius').rangeslider({
 	    polyfill : false,
 	    onInit : function() {
@@ -1233,7 +1237,7 @@ $(document).ready(function(){
 	        this.output.html( value );
 	    }
 	});
-
+}
 
     /*----------------------------------------------------*/
     /*  Show More Button
