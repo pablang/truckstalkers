@@ -3,7 +3,7 @@
 ================================================== -->
 <div class="listing-slider mfp-gallery-container margin-bottom-0">
 <% @photos.each_with_index do |photo, i| %>
-	<a href="<%= photo.path %>" data-background-image="<%= photo.path %>" class="item mfp-gallery" title="Photo <%= i+1 %>"></a>
+	<a href="/img/trucks/<%= @truck.id %>/<%= photo.path %>" data-background-image="/img/trucks/<%= @truck.id %>/<%= photo.path %>" class="item mfp-gallery" title="Photo <%= i+1 %>"></a>
 <% end %>
 </div>
 

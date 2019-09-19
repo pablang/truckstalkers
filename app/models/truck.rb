@@ -23,4 +23,9 @@ class Truck < ApplicationRecord
     end
     return summary
   end
+
+  def images
+    self.photos.where(is_logo: false)
+  end
+
 end

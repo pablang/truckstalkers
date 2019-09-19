@@ -135,15 +135,13 @@
 		<div class="col-md-12">
 			<div class="simple-slick-carousel dots-nav">
         <!-- Listing Item -->
-      <% @trucks.each do |truck| %>
+      <% @popular_trucks.each do |truck| %>
         <div class="carousel-item">
           <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-            <%= image_tag(truck.photos.first.path) if truck.photos.first %>
-              <!-- R: No open tag -->
+            <%= image_tag("/img/trucks/#{truck.id}/#{truck.images.first.path}") if truck.images.first %>
 
               <div class="listing-item-content">
-                <!-- R: Tag -->
                 <h3><%= truck.name %></h3>
                 <span><%= truck.tagline %></span>
               </div>
@@ -153,6 +151,7 @@
 						<div class="star-rating" data-rating="<%= truck.reviews_summary[:average_rating].round(1) %>">
 							<div class="rating-counter">(<%= truck.reviews.count %> reviews)</div>
 						</div>
+            <!--  Ratings end -->
           </a>
         </div>
       <% end %>
@@ -175,10 +174,8 @@
         <div class="col-lg-4 col-md-6">
           <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-              <%= image_tag(truck.photos.first.path) if truck.photos.first %>
-
+            <%= image_tag("/img/trucks/#{truck.id}/#{truck.images.first.path}") if truck.images.first %>
               <%# <div class="listing-badge now-open">Now Open</div> %>
-
               <div class="listing-item-content">
 
                 <h3><%= truck.name %></h3>
