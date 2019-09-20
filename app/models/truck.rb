@@ -3,6 +3,7 @@
 class Truck < ApplicationRecord
   has_many :reviews
   has_many :photos
+  paginates_per 20
 
   def reviews_summary
     summary = {

@@ -1,6 +1,7 @@
 class TrucksController < ApplicationController
+
   def index
-    @trucks = Truck.all
+    @trucks = Truck.order(:updated_at).page params[:page]
   end
 
   def show
