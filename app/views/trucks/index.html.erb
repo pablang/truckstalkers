@@ -1,6 +1,163 @@
 
-<ul>
-  <% for item in @trucks %>
-    <li><%= item.name %></li>
-  <% end %>
-<ul>
+<!-- Map
+================================================== -->
+<%# <div id="map-container" class="fullwidth-home-map">
+
+    <div id="map" data-map-zoom="9">
+        <!-- map goes here -->
+    </div>
+
+	<div class="main-search-inner">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="main-search-input">
+
+						<div class="main-search-input-item">
+							<input type="text" placeholder="What are you looking for?" value=""/>
+						</div>
+
+						<div class="main-search-input-item location">
+							<div id="autocomplete-container">
+								<input id="autocomplete-input" type="text" placeholder="Location">
+							</div>
+							<a href="#"><i class="fa fa-map-marker"></i></a>
+						</div>
+
+						<div class="main-search-input-item">
+							<select data-placeholder="All Categories" class="chosen-select" >
+								<option>All Categories</option>
+								<option>Shops</option>
+								<option>Hotels</option>
+								<option>Restaurants</option>
+								<option>Fitness</option>
+								<option>Events</option>
+							</select>
+						</div>
+
+						<button class="button">Search</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+    <!-- Scroll Enabling Button -->
+	<a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>
+</div> %>
+
+
+<!-- Content
+================================================== -->
+
+<%# <div class="container">
+	<div class="row">
+
+		<div class="col-md-12">
+			<h3 class="headline centered margin-top-75">
+				Browse Categories
+			</h3>
+		</div>
+
+	</div>
+</div> %>
+
+
+<!-- Category Boxes -->
+<%# <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="categories-boxes-container margin-top-5 margin-bottom-30">
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im im-icon-Hamburger"></i>
+					<h4>Burgers</h4>
+					<span class="category-box-counter">12</span>
+				</a>
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im  im-icon-Fish-Food"></i>
+					<h4>Seafood</h4>
+					<span class="category-box-counter">32</span>
+				</a>
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im im-icon-Chicken"></i>
+					<h4>Chicken</h4>
+					<span class="category-box-counter">11</span>
+				</a>
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im im-icon-Leafs"></i>
+					<h4>Vegetarian</h4>
+					<span class="category-box-counter">15</span>
+				</a>
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im im-icon-Pizza-Slice"></i>
+					<h4>Pizza</h4>
+					<span class="category-box-counter">21</span>
+				</a>
+
+				<!-- Box -->
+				<a href="listings-list-with-sidebar.html" class="category-small-box">
+					<i class="im im-icon-Ice-Cream"></i>
+					<h4>Dessert</h4>
+					<span class="category-box-counter">28</span>
+				</a>
+
+			</div>
+		</div>
+	</div>
+</div> %>
+<!-- Category Boxes / End -->
+
+<!-- Listings -->
+<div class="container margin-top-70">
+
+
+<!-- Grid layout listings -->
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="headline centered margin-bottom-45">
+          All Foodtrucks
+          <span>Choose from many local Foodtrucks</span>
+        </h3>
+      </div>
+      <!-- Listing Item -->
+      <% @trucks.each do |truck| %>
+        <div class="col-lg-4 col-md-6">
+          <a href="/trucks/<%= truck.id %>" class="listing-item-container">
+            <div class="listing-item">
+            <%= image_tag("/img/trucks/#{truck.id}/#{truck.images.first.path}") if truck.images.first %>
+              <%# <div class="listing-badge now-open">Now Open</div> %>
+              <div class="listing-item-content">
+
+                <h3><%= truck.name %></h3>
+                <span><%= truck.tagline %></span>
+              </div>
+              <span class="like-icon"></span>
+            </div>
+            <div class="star-rating" data-rating="<%= truck.reviews_summary[:average_rating].round(1) %>">
+							<div class="rating-counter">(<%= truck.reviews.count %> reviews)</div>
+						</div>
+          </a>
+        </div>
+      <% end %>
+      <!-- Listing Item / End -->
+    </div>
+		<nav><%= paginate @trucks %></nav>
+
+</div>
+<!-- Listings / End -->
+
+
