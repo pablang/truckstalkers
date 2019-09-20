@@ -52,7 +52,7 @@ trucks = [
     instagram: 'mrburgertruck',
     z_id: '',
     price_range: 2,
-    address: 'Brunswick, Victoria'
+    address: 'Brunswick, Melbourne'
   }
 ]
 
