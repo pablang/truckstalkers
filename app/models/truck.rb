@@ -4,6 +4,8 @@ class Truck < ApplicationRecord
   has_many :reviews
   has_many :photos
   paginates_per 20
+  geocoded_by :address
+  after_validation :geocode
 
   def reviews_summary
     summary = {
