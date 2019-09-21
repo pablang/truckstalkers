@@ -139,7 +139,7 @@
         <div class="carousel-item">
           <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-            <%= image_tag("/img/trucks/#{truck.id}/#{truck.images.first.path}") if truck.images.first %>
+            <%= image_tag("#{truck.images.first.path}") if truck.images.first %>
 
               <div class="listing-item-content">
                 <h3><%= truck.name %></h3>
@@ -174,7 +174,7 @@
         <div class="col-lg-4 col-md-6">
           <a href="/trucks/<%= truck.id %>" class="listing-item-container">
             <div class="listing-item">
-            <%= image_tag("/img/trucks/#{truck.id}/#{truck.images.first.path}") if truck.images.first %>
+            <%= image_tag("#{truck.images.first.path}") if truck.images.first %>
               <%# <div class="listing-badge now-open">Now Open</div> %>
               <div class="listing-item-content">
 
