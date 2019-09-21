@@ -127,6 +127,15 @@ photos = [
     truck_id: 1, path: '/img/trucks/1/4.jpg', is_logo: false, is_menu: false
   },
   {
+    truck_id: 1, path: '/img/trucks/1/5.jpg', is_logo: false, is_menu: false
+  },
+  {
+    truck_id: 1, path: '/img/trucks/1/6.jpg', is_logo: false, is_menu: false
+  },
+  {
+    truck_id: 1, path: '/img/trucks/1/7.jpg', is_logo: false, is_menu: false
+  },
+  {
     truck_id: 2, path: '/img/trucks/2/1.jpg', is_logo: false, is_menu: false
   },
   {
