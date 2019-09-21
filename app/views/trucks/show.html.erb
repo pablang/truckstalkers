@@ -141,7 +141,7 @@
 						width="100%"
 						height="450"
 						frameborder="0" style="border:0"
-						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBKj5K-zsxRaOHJdjtqvD7KgPBETQGGwxg&q=<%= @truck.latitude %>,<%= @truck.longitude %>&zoom=14" allowfullscreen>
+						src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBKj5K-zsxRaOHJdjtqvD7KgPBETQGGwxg&q=<%= @address %>&zoom=14" allowfullscreen>
 					</iframe>
 				</div>
 			</div>
@@ -308,68 +308,37 @@
 		<!-- Sidebar
 		================================================== -->
 		<div class="col-lg-4 col-md-4 margin-top-75 sticky">
-
-
-			<!-- Verified Badge -->
-			<div class="verified-badge with-tip" data-tip-content="Listing has been verified and belongs the business owner or manager.">
-				<i class="sl sl-icon-check"></i> Verified Listing
-			</div>
-
-			<!-- Coupon Widget -->
-			<div class="coupon-widget" style="background-image: url(http://localhost/listeo_html/images/single-listing-01.jpg);">
-				<a href="#" class="coupon-top">
-					<span class="coupon-link-icon"></span>
-					<h3>Order 1 burger and get 50% off on second!</h3>
-					<div class="coupon-valid-untill">Expires 25/10/2019</div>
-					<div class="coupon-how-to-use"><strong>How to use?</strong> Just show us this coupon on a screen of your smartphone!</div>
-				</a>
-				<div class="coupon-bottom">
-					<div class="coupon-scissors-icon"></div>
-					<div class="coupon-code">L1ST30</div>
-				</div>
-			</div>
-
-
-			<!-- Opening Hours -->
-			<div class="boxed-widget opening-hours margin-top-35">
-				<div class="listing-badge now-open">Now Open</div>
-				<h3><i class="sl sl-icon-clock"></i> Opening Hours</h3>
-				<ul>
-					<li>Monday <span>9 AM - 5 PM</span></li>
-					<li>Tuesday <span>9 AM - 5 PM</span></li>
-					<li>Wednesday <span>9 AM - 5 PM</span></li>
-					<li>Thursday <span>9 AM - 5 PM</span></li>
-					<li>Friday <span>9 AM - 5 PM</span></li>
-					<li>Saturday <span>9 AM - 3 PM</span></li>
-					<li>Sunday <span>Closed</span></li>
-				</ul>
-			</div>
-			<!-- Opening Hours / End -->
-
-
 			<!-- Contact -->
 			<div class="boxed-widget margin-top-35">
         <!-- R: Hosted by and avatar -->
+				<h4>Contact us</h4>
 				<ul class="listing-details-sidebar">
 					<li><i class="sl sl-icon-phone"></i> <%= @truck.phone %></li>
 					<!-- <li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li> -->
 					<li><i class="fa fa-envelope-o"></i> <a href="#"><%= @truck.email %></a></li>
 				</ul>
-
+				<h4 class="margin-top-35">Follow us</h4>
 				<ul class="listing-details-sidebar social-profiles">
-					<li><a href="#" class="facebook-profile"><i class="fa fa-facebook-square"></i> <%= @truck.facebook %></a></li>
-					<li><a href="#" class="twitter-profile"><i class="fa fa-twitter"></i> <%= @truck.twitter %></a></li>
+				<% unless @truck.facebook == '' %>
+						<li>
+							<%= link_to "https://www.facebook.com/#{@truck.facebook}", class:"facebook-profile"  do %>
+								<%= @truck.facebook %><i class="fa fa-facebook-square"></i>
+							<% end %>
+						</li>
+					<% end %>
+					<% unless @truck.twitter == '' %>
+						<li>
+							<%= link_to "https://www.twitter.com/#{@truck.twitter}", class:"twitter-profile"  do %>
+								<%= @truck.twitter %><i class="fa fa-twitter"></i>
+							<% end %>
+						</li>
+					<% end %>
 					<!-- <li><a href="#" class="gplus-profile"><i class="fa fa-google-plus"></i> Google Plus</a></li> -->
 				</ul>
-
-				<!-- R: Reply to review popup -->
 
 
 			</div>
 			<!-- Contact / End-->
-
-
-			<!-- R: Share / Like -->
 
 		</div>
 		<!-- Sidebar / End -->

@@ -10,6 +10,7 @@ class TrucksController < ApplicationController
     @reviews = Review.where(truck_id: params[:id])
     @review = Review.new
     @photos = Photo.where(truck_id: params[:id]).order(updated_at: :desc)
+    @address = @truck.address.tr(',' , '').tr(' ', '+')
   end
 
 
