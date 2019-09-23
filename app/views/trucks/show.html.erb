@@ -16,7 +16,7 @@
 			<!-- Titlebar -->
 			<div id="titlebar" class="listing-titlebar">
 				<div class="listing-titlebar-title">
-					<h2><%= @truck.name %> <span class="listing-tag">Eat & Drink</span></h2>
+					<h2><%= @truck.name %> </h2>
 					<span>
 						<%= @truck.tagline %>
 					</span>
@@ -49,17 +49,29 @@
 				<div class="listing-links-container">
 
 					<ul class="listing-links contact-links">
+						<% if @truck.phone.present? %>
 						<li><a href="tel:<%= @truck.phone %>" class="listing-links"><i class="fa fa-phone"></i> <%= @truck.phone %></a></li>
+						<% end %>
+						<% if @truck.email.present? %>
 						<li><a href="mailto:<%= @truck.email %>" class="listing-links"><i class="fa fa-envelope-o"></i> <%= @truck.email %></a>
 						</li>
+						<% end %>
+						<% if @truck.website.present? %>
 						<li><a href="<%= @truck.website %>" target="_blank"  class="listing-links"><i class="fa fa-link"></i> <%= @truck.website %></a></li>
+						<% end %>
 					</ul>
 					<div class="clearfix"></div>
 
 					<ul class="listing-links">
+						<% if @truck.facebook.present? %>
 						<li><a href="https://facebook.com/<%= @truck.facebook %>" target="_blank" class="listing-links-fb"><i class="fa fa-facebook-square"></i> Facebook</a></li>
+						<% end %>
+						<% if @truck.instagram.present? %>
 						<li><a href="https://instagram.com/<%= @truck.instagram %>" target="_blank" class="listing-links-ig"><i class="fa fa-instagram"></i> Instagram</a></li>
+						<% end %>
+						<% if @truck.twitter.present? %>
 						<li><a href="https://twitter.com/<%= @truck.twitter %>" target="_blank" class="listing-links-tt"><i class="fa fa-twitter"></i> Twitter</a></li>
+						<% end %>
 					</ul>
 					<div class="clearfix"></div>
 
@@ -72,63 +84,8 @@
 			</div>
 
 
-			<!-- Food Menu -->
-			<div id="listing-menu" class="listing-section">
-				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Menu</h3>
+			<!-- R: Food Menu -->
 
-				<div class="show-more">
-					<div class="pricing-list-container">
-
-						<!-- Food List -->
-						<h4>Burgers</h4>
-						<ul>
-							<li>
-								<h5>Classic Burger</h5>
-								<p>Beef, salad, mayonnaise, spicey relish, cheese</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Cheddar Burger</h5>
-								<p>Cheddar cheese, lettuce, tomato, onion, dill pickles</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Veggie Burger</h5>
-								<p>Panko crumbed and fried, grilled peppers and mushroom</p>
-								<span>$6</span>
-							</li>
-							<li>
-								<h5>Chicken Burger</h5>
-								<p>Cheese, chicken fillet, avocado, bacon, tomatoes, basil</p>
-								<span>$6</span>
-							</li>
-						</ul>
-
-						<!-- Food List -->
-						<h4>Drinks</h4>
-						<ul>
-							<li>
-								<h5>Frozen Shake</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Orange Juice</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Beer</h5>
-								<span>$4</span>
-							</li>
-							<li>
-								<h5>Water</h5>
-								<span>Free</span>
-							</li>
-						</ul>
-
-					</div>
-				</div>
-				<a href="#" class="show-more-button" data-more-title="Show More" data-less-title="Show Less"><i class="fa fa-angle-down"></i></a>
-			</div>
 			<!-- Food Menu / End -->
 
 
@@ -313,20 +270,33 @@
         <!-- R: Hosted by and avatar -->
 				<h4>Contact us</h4>
 				<ul class="listing-details-sidebar">
+					<% if @truck.phone.present? %>
 					<li><i class="sl sl-icon-phone"></i> <%= @truck.phone %></li>
-					<!-- <li><i class="sl sl-icon-globe"></i> <a href="#">http://example.com</a></li> -->
+					<% end %>
+					<% if @truck.website.present? %>
+					<li><i class="sl sl-icon-globe"></i> <a href="#"><%= @truck.website %></a></li>
+					<% end %>
+					<% if @truck.email.present? %>
 					<li><i class="fa fa-envelope-o"></i> <a href="#"><%= @truck.email %></a></li>
+					<% end %>
 				</ul>
 				<h4 class="margin-top-35">Follow us</h4>
 				<ul class="listing-details-sidebar social-profiles">
-				<% unless @truck.facebook == '' %>
+				<% if @truck.facebook.present? %>
 						<li>
 							<%= link_to "https://www.facebook.com/#{@truck.facebook}", class:"facebook-profile"  do %>
 								<%= @truck.facebook %><i class="fa fa-facebook-square"></i>
 							<% end %>
 						</li>
 					<% end %>
-					<% unless @truck.twitter == '' %>
+					<% if @truck.instagram.present? %>
+						<li>
+							<%= link_to "https://www.instagram.com/#{@truck.instagram}", class:"twitter-profile"  do %>
+								<%= @truck.instagram %><i class="fa fa-instagram"></i>
+							<% end %>
+						</li>
+					<% end %>
+					<% if @truck.twitter.present? %>
 						<li>
 							<%= link_to "https://www.twitter.com/#{@truck.twitter}", class:"twitter-profile"  do %>
 								<%= @truck.twitter %><i class="fa fa-twitter"></i>

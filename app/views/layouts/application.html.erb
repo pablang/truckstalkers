@@ -37,14 +37,8 @@
 					<a href="/"><img src="/img/truckstalkers-wording-logo.png" alt=""></a>
 				</div>
 
-				<!-- Mobile Navigation -->
-				<div class="mmenu-trigger">
-					<button class="hamburger hamburger--collapse" type="button">
-						<span class="hamburger-box">
-							<span class="hamburger-inner"></span>
-						</span>
-					</button>
-				</div>
+				<!-- R: Mobile Navigation -->
+
 
 				<!-- R: Main Navigation -->
 				<div class="clearfix"></div>
@@ -53,90 +47,12 @@
 			</div>
 			<!-- Left Side Content / End -->
 
-			<!-- Right Side Content / End -->
-			<div class="right-side">
-				<div class="header-widget">
-        <% if current_user %>
-          <!-- User Menu -->
-					<div class="user-menu">
-						<div class="user-name"><span><img src="/img/stock/dashboard-avatar-p.jpg" alt=""></span>Hi, <%= current_user.name %>!</div>
-						<ul>
-							<li><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-							<li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages</a></li>
-							<li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> Bookings</a></li>
-							<li><a href="/logout"><i class="sl sl-icon-power"></i> Logout</a></li>
-						</ul>
-					</div>
+			<!-- R: Right Side Content / End -->
 
-        <% else %>
-					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
-        <% end %>
-          <!-- R: Add listing -->
-
-				</div>
-			</div>
 			<!-- Right Side Content / End -->
 
-			<!-- Sign In Popup -->
-			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+			<!-- R: Sign In Popup -->
 
-				<div class="small-dialog-header">
-					<h3>Sign In</h3>
-				</div>
-
-				<!--Tabs -->
-				<div class="sign-in-form style-1">
-
-					<ul class="tabs-nav">
-						<li class=""><a href="#tab1">Log In</a></li>
-						<li><a href="#tab2">Register</a></li>
-					</ul>
-
-					<div class="tabs-container alt">
-
-						<!-- Login -->
-						<div class="tab-content" id="tab1" style="display: none;">
-            <%= form_tag '/login' do %>
-              <label for="username">Email:
-                <i class="im im-icon-Mail"></i>
-                <%= text_field_tag :email %>
-              </label>
-              <label for="password">Password:
-                <i class="im im-icon-Lock-2"></i>
-                <%= password_field_tag :password %>
-              </label>
-              <%= submit_tag "Submit" %>
-            <% end %>
-            <!-- TODO: Remember me checkbox -->
-						</div>
-
-						<!-- Register -->
-						<div class="tab-content" id="tab2" style="display: none;">
-            <%= form_for :user, url: '/users' do |f| %>
-              <label for="name">Username:
-                <i class="im im-icon-Male"></i>
-                <%= f.text_field :name %>
-              </label>
-              <label for="email">Email Address:
-                <i class="im im-icon-Mail"></i>
-                <%= f.text_field :email %>
-              </label>
-              <label for="password">Password:
-                <i class="im im-icon-Lock-2"></i>
-                <%= f.password_field :password %>
-              </label>
-              <label for="password_confirmation">Password Confirmation:
-                <i class="im im-icon-Lock-2"></i>
-                <%= f.password_field :password_confirmation %>
-              </label>
-              <%= f.submit "Register" %>
-            <% end %>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- Sign In Popup / End -->
 
 		</div>
 	</div>
