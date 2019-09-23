@@ -22,7 +22,8 @@ trucks = [
     instagram: 'hoypinoybbq',
     z_id: '10',
     price_range: 1,
-    address: 'South Melbourne, Victoria'
+    address: 'South Melbourne, Victoria',
+    category_list: 'Filipino, asian, BBQ, fusion'
   },
   { name: 'Señor Sisig',
     bio: 'In 2010, San Francisco’s street-food scene was taking baby steps, trying to walk the city’s complicated permit requirements. To make it, you needed passion and vision—exactly the two things that fueled the launch of Señor Sisig’s first food truck that year. Inspired by the success of Roy Choi’s Kogi Korean taco truck in Los Angeles, high school friends Evan Kidera, who has an MBA from San Francisco State, and Gil Payumo, an experienced chef, saw Filipino food as a Bay Area cultural force ready to break out.
@@ -37,7 +38,8 @@ trucks = [
     instagram: 'senorsisig',
     z_id: '',
     price_range: 2,
-    address: 'Oakland, California'
+    address: 'Oakland, California',
+    category_list: 'Filipino, asian, BBQ, Amercican, Mexican, fusion'
   },
   { name: 'Mr Burger',
     bio: 'In early 2012, Myles Munro and Daragh Kan were on holiday in America, and while there, ate at a heap of food trucks and burger joints in San Francisco, New York, Austin and Miami.
@@ -52,13 +54,15 @@ trucks = [
     instagram: 'mrburgertruck',
     z_id: '',
     price_range: 2,
-    address: 'Brunswick, Melbourne'
+    address: 'Brunswick, Melbourne',
+    category_list: 'burger, fast-food'
   }
 ]
 
 trucks.each do |t|
   Truck.create(t)
 end
+
 
 users = [
   { name: 'Pammy',
