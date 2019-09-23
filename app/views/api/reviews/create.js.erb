@@ -1,2 +1,4 @@
 $('#reviews-list').append('<%= j render :partial => "review", :locals => {:review => @review} %>');
 starRating('#reviews-list :last-child .comment-content .comment-by .star-rating')
+
+$('#add-review').html('<div>Your review was successfully posted!<div/>');
