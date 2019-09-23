@@ -32,6 +32,8 @@ gem 'kaminari'
 # gem 'mini_magick', '~> 4.8'
 # Use for geocoding
 gem 'geocoder'
+# Use for creating tags/categories
+gem 'acts-as-taggable-on', '~> 6.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

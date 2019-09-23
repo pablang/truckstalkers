@@ -13,5 +13,8 @@ class TrucksController < ApplicationController
     @address = @truck.address.tr(',' , '').tr(' ', '+')
   end
 
+  def truck_params
+    params.require(:truck).permit(:title, :body, :category_list)
+  end
 
 end
