@@ -7,7 +7,7 @@ class TrucksController < ApplicationController
   def show
     @truck = Truck.find(params[:id])
     @reviews_summary = @truck.reviews_summary
-    @reviews = Review.where(truck_id: params[:id])
+    @reviews = Review.where(truck_id: params[:id]).order(created_at: :desc).limit(5)
     @review = Review.new
     @photos = Photo.where(truck_id: params[:id]).order(updated_at: :desc)
     @address = @truck.address.tr(',' , '').tr(' ', '+')
