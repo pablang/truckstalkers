@@ -68,58 +68,21 @@
 
 
 <!-- Category Boxes -->
-<%# <div class="container">
+<div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<div class="categories-boxes-container margin-top-5 margin-bottom-30">
+		<div class="col-md-12 text-center">
+			<div class="centered margin-top-25 margin-bottom-10">
 
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im im-icon-Hamburger"></i>
-					<h4>Burgers</h4>
-					<span class="category-box-counter">12</span>
-				</a>
-
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im  im-icon-Fish-Food"></i>
-					<h4>Seafood</h4>
-					<span class="category-box-counter">32</span>
-				</a>
-
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im im-icon-Chicken"></i>
-					<h4>Chicken</h4>
-					<span class="category-box-counter">11</span>
-				</a>
-
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im im-icon-Leafs"></i>
-					<h4>Vegetarian</h4>
-					<span class="category-box-counter">15</span>
-				</a>
-
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im im-icon-Pizza-Slice"></i>
-					<h4>Pizza</h4>
-					<span class="category-box-counter">21</span>
-				</a>
-
-				<!-- Box -->
-				<a href="listings-list-with-sidebar.html" class="category-small-box">
-					<i class="im im-icon-Ice-Cream"></i>
-					<h4>Dessert</h4>
-					<span class="category-box-counter">28</span>
-				</a>
-
+				<% @categories.each do |category| %>
+					<%= link_to category, category_path(:id => category.name), class: 'button border' %>
+				<% end %>
 			</div>
 		</div>
 	</div>
-</div> %>
+</div>
 <!-- Category Boxes / End -->
+
+
 
 <!-- Listings -->
 <div class="container margin-top-70">

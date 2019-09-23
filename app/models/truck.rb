@@ -6,6 +6,7 @@ class Truck < ApplicationRecord
   paginates_per 20
   geocoded_by :address
   after_validation :geocode
+  acts_as_taggable_on :categories
 
   def reviews_summary
     summary = {
