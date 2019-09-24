@@ -157,107 +157,110 @@
 				<!-- Rating Overview / End -->
 
 				<div class="clearfix"></div>
+			<!-- Add Review Box -->
 
-				<!-- Reviews -->
-				<section class="comments listing-reviews">
-					<ul id="reviews-list">
-						<% @reviews.each do |review|%>
-						<li>
-							<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
-							<div class="comment-content"><div class="arrow-comment"></div>
-								<div class="comment-by"><%= review.user.name %> <i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
-									<div class="star-rating" data-rating="<%= review.average_rating %>"></div>
+				<div id="add-review" class="add-review-box">
+
+					<!-- Add Review -->
+					<h3 class="listing-desc-headline margin-bottom-10">Add Review</h3>
+					<p class="comment-notes">Your email address will not be published.</p>
+
+					<%= form_with model: @review, url: api_reviews_path, data: {'js-review-form' => true}, html: {class: "add-comment", id: "add-comment"} do |f| %>
+						<%= f.hidden_field :truck_id, value: @truck[:id] %>
+
+						<div class="sub-ratings-container">
+							<!-- Subrating #1 -->
+							<div class="add-sub-rating">
+								<div class="sub-rating-title">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></div>
+								<div class="sub-rating-stars">
+									<!-- Leave Rating -->
+									<div class="clearfix"></div>
+									<div class="leave-rating">
+										<%  (1..5).reverse_each do |i| %>
+											<%= f.radio_button :service_rating, i %>
+											<%= label_tag "review_service_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+										<% end %>
+									</div>
 								</div>
-								<p><%= review.body %></p>
 							</div>
-						</li>
-						<% end %>
-					</ul>
-				</section>
+
+							<!-- Subrating #2 -->
+							<div class="add-sub-rating">
+								<div class="sub-rating-title">Value for Money <i class="tip" data-tip-content="Overall experience for the amount you paid"></i></div>
+								<div class="sub-rating-stars">
+									<!-- Leave Rating -->
+									<div class="clearfix"></div>
+									<div class="leave-rating">
+										<%  (1..5).reverse_each do |i| %>
+											<%= f.radio_button :value_rating, i %>
+											<%= label_tag "review_value_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+
+							<!-- Subrating #3 -->
+							<div class="add-sub-rating">
+								<div class="sub-rating-title">Food <i class="tip" data-tip-content="Overall taste and presentation of food"></i></div>
+								<div class="sub-rating-stars">
+									<!-- Leave Rating -->
+									<div class="clearfix"></div>
+									<div class="leave-rating">
+										<%  (1..5).reverse_each do |i| %>
+											<%= f.radio_button :food_rating, i %>
+											<%= label_tag "review_food_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+										<% end %>
+									</div>
+								</div>
+							</div>
+							<!-- Subrating #4 -->
+							<div class="add-sub-rating">
+								<div class="sub-rating-title">Cleanliness <i class="tip" data-tip-content="Physical condition of the business"></i></div>
+								<div class="sub-rating-stars">
+									<!-- Leave Rating -->
+									<div class="clearfix"></div>
+									<div class="leave-rating">
+										<%  (1..5).reverse_each do |i| %>
+											<%= f.radio_button :cleanliness_rating, i %>
+											<%= label_tag "review_cleanliness_rating_#{i}".to_sym, '', class: "fa fa-star" %>
+										<% end %>
+									</div>
+								</div>
+						<!-- sub-ratings-container -->
+						</div>
+
+						<%= f.label :name, "Name" %>
+						<%= f.text_field :name %>
+						<%= f.label :body, "Review" %>
+						<%= f.text_area :body, size: '40x3' %>
+						<%= f.submit "Submit Review" %>
+					<% end %>
+				</div>
+				<!-- Add Review Box / End -->
+			</div>
+			<!-- Reviews -->
+			<section class="comments listing-reviews">
+				<ul id="reviews-list">
+					<% @reviews.each do |review|%>
+					<li>
+						<div class="avatar"><img src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&amp;s=70" alt="" /></div>
+						<div class="comment-content"><div class="arrow-comment"></div>
+							<div class="comment-by"><%= review.name %> <i class="tip" data-tip-content="Person who left this review actually was a customer"></i> <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
+								<div class="star-rating" data-rating="<%= review.average_rating %>"></div>
+							</div>
+							<p><%= review.body %></p>
+						</div>
+					</li>
+					<% end %>
+				</ul>
+			</section>
 
 				<!--R: Pagination -->
 
-			</div>
 
 
-			<!-- Add Review Box -->
 
-			<div id="add-review" class="add-review-box">
 
-				<!-- Add Review -->
-				<h3 class="listing-desc-headline margin-bottom-10">Add Review</h3>
-				<p class="comment-notes">Your email address will not be published.</p>
-
-				<%= form_with model: @review, url: api_reviews_path, data: {'js-review-form' => true}, html: {class: "add-comment", id: "add-comment"} do |f| %>
-					<%= f.hidden_field :truck_id, value: @truck[:id] %>
-
-					<div class="sub-ratings-container">
-						<!-- Subrating #1 -->
-						<div class="add-sub-rating">
-							<div class="sub-rating-title">Service <i class="tip" data-tip-content="Quality of customer service and attitude to work with you"></i></div>
-							<div class="sub-rating-stars">
-								<!-- Leave Rating -->
-								<div class="clearfix"></div>
-								<div class="leave-rating">
-									<%  (1..5).reverse_each do |i| %>
-										<%= f.radio_button :service_rating, i %>
-										<%= label_tag "review_service_rating_#{i}".to_sym, '', class: "fa fa-star" %>
-									<% end %>
-								</div>
-							</div>
-						</div>
-
-						<!-- Subrating #2 -->
-						<div class="add-sub-rating">
-							<div class="sub-rating-title">Value for Money <i class="tip" data-tip-content="Overall experience for the amount you paid"></i></div>
-							<div class="sub-rating-stars">
-								<!-- Leave Rating -->
-								<div class="clearfix"></div>
-								<div class="leave-rating">
-									<%  (1..5).reverse_each do |i| %>
-										<%= f.radio_button :value_rating, i %>
-										<%= label_tag "review_value_rating_#{i}".to_sym, '', class: "fa fa-star" %>
-									<% end %>
-								</div>
-							</div>
-						</div>
-
-						<!-- Subrating #3 -->
-						<div class="add-sub-rating">
-							<div class="sub-rating-title">Food <i class="tip" data-tip-content="Overall taste and presentation of food"></i></div>
-							<div class="sub-rating-stars">
-								<!-- Leave Rating -->
-								<div class="clearfix"></div>
-								<div class="leave-rating">
-									<%  (1..5).reverse_each do |i| %>
-										<%= f.radio_button :food_rating, i %>
-										<%= label_tag "review_food_rating_#{i}".to_sym, '', class: "fa fa-star" %>
-									<% end %>
-								</div>
-							</div>
-						</div>
-						<!-- Subrating #4 -->
-						<div class="add-sub-rating">
-							<div class="sub-rating-title">Cleanliness <i class="tip" data-tip-content="Physical condition of the business"></i></div>
-							<div class="sub-rating-stars">
-								<!-- Leave Rating -->
-								<div class="clearfix"></div>
-								<div class="leave-rating">
-									<%  (1..5).reverse_each do |i| %>
-										<%= f.radio_button :cleanliness_rating, i %>
-										<%= label_tag "review_cleanliness_rating_#{i}".to_sym, '', class: "fa fa-star" %>
-									<% end %>
-								</div>
-							</div>
-					<!-- sub-ratings-container -->
-					</div>
-
-					<%= f.label :body, "Review" %>
-					<%= f.text_area :body, size: '40x3' %>
-					<%= f.submit "Submit Review" %>
-				<% end %>
-			</div>
-			<!-- Add Review Box / End -->
 		</div>
 	</div>
 

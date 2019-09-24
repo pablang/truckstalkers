@@ -1514,6 +1514,8 @@ function numericalRating(ratingElem) {
 /*--------------------------*/
 function starRating(ratingElem) {
 	$(ratingElem).each(function() {
+		// Prevents duplicating stars if already exist
+		if($(this).find(".star").length) { return false; }
 		var dataRating = $(this).attr('data-rating');
 
 		// Rating Stars Output

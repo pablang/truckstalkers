@@ -155,8 +155,9 @@
       <% end %>
       <!-- Listing Item / End -->
     </div>
-<div class="pagination"><%= link_to "Next >", '/trucks/page/2', class: 'rate-review'%></div>
-
+	<% if @trucks.count > 20 %>
+		<div class="pagination"><%= link_to "Next >", '/trucks/page/2', class: 'rate-review'%></div>
+	<% end %>
 </div>
 <!-- Listings / End -->
 

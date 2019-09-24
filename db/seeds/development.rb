@@ -65,6 +65,10 @@ end
 
 
 users = [
+  { name: 'Anon',
+    email: 'pammy@example.com',
+    password: 'abcd'
+  },
   { name: 'Pammy',
     email: 'pammy@example.com',
     password: 'abcd'
@@ -91,7 +95,8 @@ reviews = [
     cleanliness_rating: 2,
     food_rating: 3,
     average_rating: 2.5,
-    user_id: 1
+    user_id: 1,
+    name: 'Pammy'
   },
   { truck_id: 1,
     body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
@@ -100,7 +105,8 @@ reviews = [
     cleanliness_rating: 5,
     food_rating: 5,
     average_rating: 4.25,
-    user_id: 2
+    user_id: 2,
+    name: 'Miguel'
   },
   { truck_id: 1,
     body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
@@ -109,7 +115,8 @@ reviews = [
     cleanliness_rating: 3,
     food_rating: 3,
     average_rating: 2.75,
-    user_id: 3
+    user_id: 3,
+    name: 'Frankie'
   },
 ]
 
