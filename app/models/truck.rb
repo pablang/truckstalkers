@@ -7,6 +7,9 @@ class Truck < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   acts_as_taggable_on :categories
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
 
   def reviews_summary
     summary = {
