@@ -1,7 +1,7 @@
 class TrucksController < ApplicationController
 
   def index
-    @trucks = Truck.order(:updated_at).page params[:page]
+    @trucks = Truck.includes(:photos, :reviews).order(:updated_at).page params[:page]
   end
 
   def show
@@ -16,5 +16,6 @@ class TrucksController < ApplicationController
   def truck_params
     params.require(:truck).permit(:title, :body, :category_list)
   end
+
 
 end
