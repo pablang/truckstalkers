@@ -1,7 +1,7 @@
 class TrucksController < ApplicationController
 
   def index
-    @trucks = Truck.includes(:photos, :reviews).order(:updated_at).page params[:page]
+    @trucks = Truck.includes(:photos, :reviews).where(photos: {is_feature: true}).order(:updated_at).page(params[:page])
   end
 
   def show

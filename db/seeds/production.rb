@@ -50,3 +50,8 @@ users = [
 users.each do |t|
   User.create(t)
 end
+
+# Photo.all.each do |img|
+#   img.is_feature = false  if not img.path.include?('featured')
+#   img.save
+# end
