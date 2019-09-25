@@ -136,7 +136,7 @@
       <!-- Listing Item -->
       <% @trucks.each do |truck| %>
         <div class="col-lg-4 col-md-6">
-          <a href="/trucks/<%= truck.id %>" class="listing-item-container">
+          <%= link_to(truck, class: 'listing-item-container') do  %>
             <div class="listing-item">
             <%= image_tag("#{truck.images.first.path}") if truck.images.first %>
               <div class="listing-item-content">
@@ -149,7 +149,7 @@
             <div class="star-rating" data-rating="<%= truck.reviews_summary[:average_rating].round(1) %>">
 							<div class="rating-counter">(<%= truck.reviews.count %> reviews)</div>
 						</div>
-          </a>
+          <% end %>
         </div>
       <% end %>
       <!-- Listing Item / End -->
