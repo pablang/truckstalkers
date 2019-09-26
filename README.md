@@ -2,6 +2,8 @@
 
 Truckstalkers is a web app that allows users to search for nearby or favourite foodtrucks.
 
+https://truckstalkers.com
+
 ## Installation
 
 This project is a ruby on rails application.
@@ -23,8 +25,18 @@ To start the local server type the following in the command line:
 - Rails v5.2.3 - framework
 - postgreSQL - database
 - bcrypt - password encryption
+- JQuery / AJAX
+- Google Maps API
+- Geocoder gem - for location lat and long
+- Kaminari - used for pagination
+- Acts-As-Taggable-On gem - used for creating tags
+- friendly_id gem - used for creating friendly url slugs
 
 ## Features
 
-- Map of truck locations
+- Filter truck by category
+- Browse through trucks useing paginated pages
+- Currently anonymous review form accepts a name, review and rating
+- Form is submitted through AJAX and renders newly submitted form at the top of list without page refresh
+- Current location of truck shown on each truck page
 
