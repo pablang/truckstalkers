@@ -40,3 +40,9 @@ To start the local server type the following in the command line:
 - Form is submitted through AJAX and renders newly submitted form at the top of list without page refresh
 - Current location of truck shown on each truck page
 
+## Still to do
+
+- Add menus to each truck
+- Create admin user
+- Create users table
+- Add map on homepage with truck locations for that area
