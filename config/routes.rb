@@ -18,9 +18,4 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
-  post '/users' => 'users#create'
-
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
-
 end

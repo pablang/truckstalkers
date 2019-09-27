@@ -36,18 +36,6 @@
 				<div id="logo">
 					<a href="/"><img src="/img/truckstalkers-wording-logo.png" alt=""></a>
 				</div>
-
-				<p class="navbar-text pull-right">
-					<% if user_signed_in? %>
-						Logged in as <strong><%= current_user.email %></strong>.
-						<%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-						<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-					<% else %>
-						<%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-						<%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-					<% end %>
-				</p>
-
 				<!-- R: Mobile Navigation -->
 
 
@@ -59,16 +47,87 @@
 			<!-- Left Side Content / End -->
 
 			<!-- R: Right Side Content / End -->
-
+			<div class="right-side">
+				<div class="header-widget">
+        <% if current_user %>
+          <!-- User Menu -->
+					<div class="user-menu">
+						<div class="user-name"><span><img src="/img/stock/dashboard-avatar-p.jpg" alt=""></span>Hi, <%= current_user.username %>!</div>
+						<ul>
+							<li><%= link_to(destroy_user_session_path, method: :delete) do %><i class="sl sl-icon-power"></i> Logout <% end %></li>
+						</ul>
+					</div>
+        <% else %>
+					<a href="#sign-in-dialog" class="sign-in popup-with-zoom-anim"><i class="sl sl-icon-login"></i> Sign In</a>
+        <% end %>
 			<!-- Right Side Content / End -->
-
+				</div>
+			</div>
 			<!-- R: Sign In Popup -->
+			<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+				<div class="small-dialog-header">
+					<h3>Sign In</h3>
+				</div>
 
+				<!--Tabs -->
+				<div class="sign-in-form style-1">
+					<ul class="tabs-nav">
+						<li class=""><a href="#tab1">Log In</a></li>
+						<li><a href="#tab2">Register</a></li>
+					</ul>
 
+					<div class="tabs-container alt">
+					<!-- Login -->
+						<div class="tab-content" id="tab1" style="display: none;">
+						<%= form_for(:user, as: :user, url: session_path(:user)) do |f| %>
+
+							<label for="username">Email:
+								<i class="im im-icon-Mail"></i>
+								<%= f.email_field :email, autocomplete: "email" %>
+							</label>
+							<label for="password">Password:
+								<i class="im im-icon-Lock-2"></i>
+								<%= f.password_field :password, autocomplete: "current-password" %>
+							</label>
+								<div class="actions">
+									<%= f.submit "Log in" %>
+								</div>
+							<% end %>
+						<!-- TODO: Remember me checkbox -->
+						</div>
+
+					<!-- Register -->
+						<div class="tab-content" id="tab2" style="display: none;">
+							<%= form_for(:user, as: :user, url: registration_path(:user)) do |f| %>
+								<label for="username">Username:
+									<i class="im im-icon-Male"></i>
+									<%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+								</label>
+								<label for="email">Email Address:
+									<i class="im im-icon-Mail"></i>
+									<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+								</label>
+								<label for="password">Password:
+									<i class="im im-icon-Lock-2"></i>
+									<% if @minimum_password_length %>
+										<em>(<%= @minimum_password_length %> characters minimum)</em>
+									<% end %><br />
+									<%= f.password_field :password, autocomplete: "new-password" %>
+								</label>
+								<label for="password_confirmation">Password Confirmation:
+									<i class="im im-icon-Lock-2"></i>
+									<%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+								</label>
+								<%= f.submit "Register" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Sign In Popup / End -->
 		</div>
 	</div>
 	<!-- Header / End -->
-
 </header>
 <div class="clearfix"></div>
 <!-- Header Container / End -->
