@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :menu_items
+      resources :photos
+      resources :reviews
+      resources :trucks
+      resources :users
+
+      root to: "menu_items#index"
+    end
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
