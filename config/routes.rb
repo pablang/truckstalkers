@@ -6,8 +6,15 @@ Rails.application.routes.draw do
       resources :trucks
       resources :users
 
+      namespace :acts_as_taggable_on do
+        resources :tags
+        resources :taggings
+      end
+
       root to: "menu_items#index"
     end
+
+
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
