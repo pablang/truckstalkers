@@ -1,5 +1,22 @@
 Rails.application.routes.draw do
+
   devise_for :users
+
+  namespace :admin do
+    resources :menu_items
+    resources :photos
+    resources :reviews
+    resources :trucks
+    resources :users
+
+    namespace :acts_as_taggable_on do
+      resources :tags
+      resources :taggings
+    end
+
+    root to: "trucks#index"
+  end
+
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end

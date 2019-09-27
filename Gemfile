@@ -36,8 +36,12 @@ gem 'geocoder'
 gem 'acts-as-taggable-on', '~> 6.0'
 # Used for creating friendly urls
 gem 'friendly_id', '~> 5.2.4'
+
 # Use for authentication
 gem 'devise', '~> 4.2'
+# Use for creating admin dashboards
+gem "administrate"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
