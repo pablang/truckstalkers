@@ -28,42 +28,42 @@ class ReviewDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  truck
-  user
-  id
-  body
+    id
+    truck
+    user
+    body
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  truck
-  user
-  id
-  body
-  service_rating
-  value_rating
-  cleanliness_rating
-  food_rating
-  average_rating
-  created_at
-  updated_at
-  name
+    id
+    truck
+    user
+    name
+    body
+    service_rating
+    value_rating
+    cleanliness_rating
+    food_rating
+    average_rating
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  truck
-  user
-  body
-  service_rating
-  value_rating
-  cleanliness_rating
-  food_rating
-  average_rating
-  name
+    user
+    name
+    truck
+    body
+    service_rating
+    value_rating
+    cleanliness_rating
+    food_rating
+    average_rating
   ].freeze
 
   # COLLECTION_FILTERS

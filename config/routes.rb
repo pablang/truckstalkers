@@ -11,7 +11,7 @@ Rails.application.routes.draw do
         resources :taggings
       end
 
-      root to: "menu_items#index"
+      root to: "trucks#index"
     end
 
 

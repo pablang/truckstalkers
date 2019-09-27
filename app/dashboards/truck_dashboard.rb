@@ -44,73 +44,70 @@ class TruckDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  reviews
-  photos
-  menu_items
-  taggings
-  base_tags
-  category_taggings
-  categories
+    id
+    name
+    photos
+    categories
+    menu_items
+    reviews
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  reviews
-  photos
-  menu_items
-  id
-  name
-  bio
-  tagline
-  base_city
-  phone
-  email
-  website
-  facebook
-  twitter
-  instagram
-  created_at
-  updated_at
-  z_id
-  price_range
-  latitude
-  longitude
-  address
-  timings
-  average_cost_for_two
-  slug
+    id
+    name
+    bio
+    photos
+    tagline
+    base_city
+    phone
+    email
+    website
+    facebook
+    twitter
+    instagram
+    price_range
+    latitude
+    longitude
+    address
+    timings
+    average_cost_for_two
+    slug
+    z_id
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  reviews
-  photos
-  menu_items
-  taggings
-  base_tags
-  category_taggings
-  categories
-  name
-  bio
-  tagline
-  base_city
-  phone
-  email
-  website
-  facebook
-  twitter
-  instagram
-  z_id
-  price_range
-  latitude
-  longitude
-  address
-  timings
-  average_cost_for_two
-  slug
+    name
+    tagline
+    bio
+    photos
+    base_city
+    phone
+    email
+    website
+    facebook
+    twitter
+    instagram
+    menu_items
+    taggings
+    price_range
+    latitude
+    longitude
+    address
+    timings
+    average_cost_for_two
+    reviews
+    base_tags
+    category_taggings
+    categories
+    z_id
+    slug
   ].freeze
 
   # COLLECTION_FILTERS
