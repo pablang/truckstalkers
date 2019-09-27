@@ -11,10 +11,12 @@ class TruckDashboard < Administrate::BaseDashboard
     reviews: Field::HasMany,
     photos: Field::HasMany,
     menu_items: Field::HasMany,
-    taggings: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tagging"),
-    base_tags: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tag"),
-    category_taggings: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tagging"),
-    categories: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tag"),
+    # taggings: Field::String,
+    # base_tags: Field::String,
+    # taggings: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tagging"),
+    # base_tags: Field::HasMany.with_options(class_name: "::ActsAsTaggableOn::Tag"),
+    # category_taggings: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tagging"),
+    # categories: Field::HasMany.with_options(class_name: "ActsAsTaggableOn::Tag"),
     id: Field::Number,
     name: Field::Text,
     bio: Field::Text,
@@ -56,10 +58,6 @@ class TruckDashboard < Administrate::BaseDashboard
   reviews
   photos
   menu_items
-  taggings
-  base_tags
-  category_taggings
-  categories
   id
   name
   bio
@@ -90,10 +88,6 @@ class TruckDashboard < Administrate::BaseDashboard
   reviews
   photos
   menu_items
-  taggings
-  base_tags
-  category_taggings
-  categories
   name
   bio
   tagline
