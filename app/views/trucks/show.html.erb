@@ -85,7 +85,29 @@
 
 
 			<!-- R: Food Menu -->
+			<div id="listing-pricing-list" class="listing-section">
+				<h3 class="listing-desc-headline margin-top-70 margin-bottom-30">Menu</h3>
 
+					<div class="pricing-list-container">
+
+						<!-- Food List -->
+						<% @menu.each_with_index do |item, i| %>
+							<% if item.is_heading == true %>
+								<h4><%= item.title %></h4>
+								<ul>
+							<% else %>
+									<li>
+										<h5><%= item.title %></h5>
+										<p><%= item.description %></p>
+										<span><%= number_to_currency(item.price) if item.price > 0 %></span>
+									</li>
+							<% end %>
+							<% if (@menu.count == i || @menu[i+1].present? && @menu[i+1].is_heading == true) %>
+								</ul>
+							<% end %>
+						<% end %>
+					</div>
+			</div>
 			<!-- Food Menu / End -->
 
 

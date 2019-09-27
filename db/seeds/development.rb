@@ -190,3 +190,69 @@ photos = [
 photos.each do |t|
   Photo.create(t)
 end
+
+menu_items = [
+  {
+    truck_id: 2,
+    title: 'Mains',
+    description: '',
+    order_index: 1,
+    is_heading: true,
+  },
+  {
+    truck_id: 2,
+    title: 'Carne on a stick',
+    description: 'Pork marinated in mamasita and put on a stick',
+    price: 3,
+    order_index: 2,
+    is_heading: false,
+  },
+  {
+    truck_id: 2,
+    title: 'Adobo Pork',
+    description: 'Pork cooked in soy and vinegar served with rice',
+    price: 10,
+    order_index: 3,
+    is_heading: false,
+  },
+  {
+    truck_id: 2,
+    title: 'Adobo Chicken',
+    description: 'Chicken cooked in soy and vinegar served with rice',
+    price: 10,
+    order_index: 4,
+    is_heading: false,
+  },
+  {
+    truck_id: 2,
+    title: 'Chicken Adoburrito',
+    description: 'Chicken cooked in soy and vinegar wrapped in a tortilla',
+    price: 10,
+    order_index: 5,
+    is_heading: false,
+  },
+  {truck_id: 3,title: "BURGERS", description: "", price: 0, order_index: 0,is_heading: true},
+  {truck_id: 3,title: "MR BURGER",description: "Beef, Cheese, Lettuce, Tomato, Onion, Pickle, Mustard, Mayonnaise & Tomato Sauce", price: 0, order_index: 1,is_heading: false},
+  {truck_id: 3,title: "MR HOT",description: "Beef, Cheese, Bacon, Onion Rings, Chilli Mayo & Jalapeños",price: 0, order_index: 2,is_heading: false},
+  {truck_id: 3,title: "MR DOUBLE",description: "Double Beef, Double Cheese, Double Bacon, Lettuce, Tomato, Onion, Pickle & Trucker Sauce",price: 0, order_index: 3,is_heading: false},
+  {truck_id: 3,title: "MR GRILLED *",description: "Grilled Chicken, Lettuce, Tomato, Pickle, Mustard, Mayo",price: 0, order_index: 4,is_heading: false},
+  {truck_id: 3,title: "MR BRUNCH *",description: "Hashbrown, Bacon, Cheese, Egg, Pickle, Mayo, BBQ Sauce",price: 0, order_index: 5,is_heading: false},
+  {truck_id: 3,title: "MR MEAT",description: "Beef, Cheese, Lettuce, Bacon, Caramelised Onions, Pickle, Bbq Sauce & Mayonnaise",price: 0, order_index: 6,is_heading: false},
+  {truck_id: 3,title: "MR CHICKEN",description: "Fried Chicken, Lettuce, Ranch Sauce & Pickles",price: 0, order_index: 7,is_heading: false},
+  {truck_id: 3,title: "MR VEG",description: "New Veg Pattie, Cheese, Lettuce, Tomato, Onion, Pickle, Mustard, Mayonnaise & Tomato Sauce", price: 0, order_index: 8,is_heading: false},
+  {truck_id: 3,title: "THE LOT",description: "Beef, Bacon, Egg, Beetroot, Cheese, Lettuce, Tomato, Onion, Pickle, Mayo, Mustard, Ketchup",price: 0, order_index: 9,is_heading: false},
+  {truck_id: 3,title: "*NEW* BEYOND MEAT BURGER",description: "Beyond Meat Pattie, Vegan Cheese, Lettuce, Tomato, Onion, Pickle, Vegan Mayo, Mustard, Ketchup",price: 0, order_index: 10,is_heading: false},
+  {truck_id: 3,title: "SIDES", description: "", price: 0, order_index: 11,is_heading: true},
+  {truck_id: 3,title: "CHIPS",description: "Chips & Cajun Salt", price: 0, order_index: 12,is_heading: false},
+  {truck_id: 3,title: "POPCORN CHICKEN *", description: "", price: 0, order_index: 13,is_heading: false},
+  {truck_id: 3,title: "SWEET POTATO CHIPS *", description: "", price: 0, order_index: 14,is_heading: false},
+  {truck_id: 3,title: "CHIPS & GRAVY *", description: "", price: 0, order_index: 15,is_heading: false},
+  {truck_id: 3,title: "TRUCKER CHIPS",description: "Chips, Bacon, Cheese & Trucker Sauce",price: 0, order_index: 16,is_heading: false},
+  {truck_id: 3,title: "MOZARELLA STICKS *", description: "", price: 0, order_index: 17,is_heading: false},
+  {truck_id: 3,title: "ONION RINGS", description: "", price: 0, order_index: 18,is_heading: false},
+  {truck_id: 3,title: "DRINKS", description: "", price: 0, order_index: 19,is_heading: true},
+  {truck_id: 3,title: "BOYLANS SODA *",description: "Orange, Ginger Ale, Cola, Black Cherry, Grape, Shirley Temple & Creaming Soda",price: 0, order_index: 20,is_heading: false},
+  {truck_id: 3,title: "MILKSHAKES *",description: "Vanilla, Choc Malt, Salted Caramel, Oreo",price: 0, order_index: 21,is_heading: false},
+]
+
+MenuItem.create(menu_items)
