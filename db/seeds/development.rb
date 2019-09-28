@@ -59,27 +59,30 @@ trucks = [
   }
 ]
 
+t_id = []
+
 trucks.each do |t|
   Truck.create(t)
+  t_id << Truck.maximum(:id)
 end
 
 
 users = [
   { name: 'Anon',
     email: 'anon@example.com',
-    password: 'abcd'
+    password: 'abcdefg'
   },
   { name: 'Pammy',
     email: 'pammy@example.com',
-    password: 'abcd'
+    password: 'abcdefg'
   },
   { name: 'Miguel',
     email: 'miguel@example.com',
-    password: 'abcd'
+    password: 'abcdefg'
   },
   { name: 'Frankie',
     email: 'frankie@example.com',
-    password: 'abcd'
+    password: 'abcdefg'
   },
 ]
 
@@ -87,8 +90,9 @@ users.each do |t|
   User.create(t)
 end
 
+
 reviews = [
-  { truck_id: 1,
+  { truck_id: t_id[0],
     body: 'Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.',
     service_rating: 3,
     value_rating: 2,
@@ -98,7 +102,7 @@ reviews = [
     user_id: 1,
     name: 'Pammy'
   },
-  { truck_id: 1,
+  { truck_id: t_id[1],
     body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
     service_rating: 4,
     value_rating: 3,
@@ -108,7 +112,7 @@ reviews = [
     user_id: 2,
     name: 'Miguel'
   },
-  { truck_id: 1,
+  { truck_id: t_id[2],
     body: 'Morbi velit eros, sagittis in facilisis non, rhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque non metus.',
     service_rating: 1,
     value_rating: 4,
@@ -126,64 +130,64 @@ end
 
 photos = [
   {
-    truck_id: 1, path: '/img/trucks/1/1.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/1.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/2.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/2.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/3.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/3.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/4.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/4.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/5.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/5.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/6.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/6.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 1, path: '/img/trucks/1/7.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[0], path: "/img/trucks/#{t_id[0]}/7.jpg", is_logo: false, is_menu: false, is_feature: true
   },
   {
-    truck_id: 2, path: '/img/trucks/2/1.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/1.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/2.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/2.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/3.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/3.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/4.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/4.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/5.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/5.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/6.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/6.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 2, path: '/img/trucks/2/7.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[1], path: "/img/trucks/#{t_id[1]}/7.jpg", is_logo: false, is_menu: false, is_feature: true
   },
   {
-    truck_id: 3, path: '/img/trucks/3/1.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/1.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 3, path: '/img/trucks/3/2.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/2.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 3, path: '/img/trucks/3/3.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/3.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 3, path: '/img/trucks/3/4.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/4.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 3, path: '/img/trucks/3/5.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/5.jpg", is_logo: false, is_menu: false, is_feature: false
   },
   {
-    truck_id: 3, path: '/img/trucks/3/6.jpg', is_logo: false, is_menu: false
+    truck_id: t_id[2], path: "/img/trucks/#{t_id[2]}/6.jpg", is_logo: false, is_menu: false, is_feature: true
   },
 ]
 

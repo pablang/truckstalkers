@@ -4,7 +4,7 @@ class Truck < ApplicationRecord
   has_many :reviews
   has_many :photos
   has_many :menu_items
-  paginates_per 20
+  paginates_per 21
   geocoded_by :address
   after_validation :geocode
   acts_as_taggable_on :categories
