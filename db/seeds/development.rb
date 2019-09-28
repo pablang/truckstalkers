@@ -66,7 +66,7 @@ end
 
 users = [
   { name: 'Anon',
-    email: 'pammy@example.com',
+    email: 'anon@example.com',
     password: 'abcd'
   },
   { name: 'Pammy',
