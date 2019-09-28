@@ -34,7 +34,9 @@
 			<div id="listing-nav" class="listing-nav-container">
 				<ul class="listing-nav">
 					<li><a href="#listing-overview" class="active">Overview</a></li>
-					<li><a href="#listing-menu">Menu</a></li>
+					<% if @truck.menu_items.present? %>
+						<li><a href="#listing-menu">Menu</a></li>
+					<% end %>
 					<li><a href="#listing-location">Location</a></li>
 
 				</ul>
