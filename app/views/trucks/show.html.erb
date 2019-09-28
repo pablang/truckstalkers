@@ -298,13 +298,13 @@
 				<h4>Contact us</h4>
 				<ul class="listing-details-sidebar">
 					<% if @truck.phone.present? %>
-					<li><i class="sl sl-icon-phone"></i> <%= @truck.phone %></li>
+					<li><i class="sl sl-icon-phone"><a href="tel:<%= @truck.phone %>"></i> <%= @truck.phone %></li>
 					<% end %>
 					<% if @truck.website.present? %>
 					<li><i class="sl sl-icon-globe"></i> <a href="<%= @truck.website %>"><%= @truck.clean_website %></a></li>
 					<% end %>
 					<% if @truck.email.present? %>
-					<li><i class="fa fa-envelope-o"></i> <a href="#"><%= @truck.email %></a></li>
+					<li><i class="fa fa-envelope-o"></i> <a href="mailto:<%= @truck.email %>"><%= @truck.email %></a></li>
 					<% end %>
 				</ul>
 				<h4 class="margin-top-35">Follow us</h4>
