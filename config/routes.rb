@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
+
   devise_for :users
 
   namespace :admin do
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
   resources :categories, concerns: :show_paginatable, only: [:show]
 
   resources :photos
-  get '/', to:'home#index'
+
   resources :trucks, concerns: :paginatable, only: [:show, :index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :api do
