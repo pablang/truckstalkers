@@ -4,7 +4,7 @@ class Truck < ApplicationRecord
   has_many :reviews
   has_many :photos
   has_many :menu_items
-  paginates_per 20
+  paginates_per 21
   geocoded_by :address
   after_validation :geocode
   acts_as_taggable_on :categories
@@ -34,6 +34,10 @@ class Truck < ApplicationRecord
 
   def images
     self.photos.where(is_logo: false)
+  end
+
+  def clean_website
+    self.website.sub(/^https?\:\/\/(www.)?/,'').sub(/\/$/,'')
   end
 
 end

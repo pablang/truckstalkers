@@ -7,11 +7,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+		<%= yield :head %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- CSS
     ================================================== -->
+
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/main-color.css" id="colors">
   </head>
@@ -79,6 +80,7 @@
 					<div class="tabs-container alt">
 					<!-- Login -->
 						<div class="tab-content" id="tab1" style="display: none;">
+
 						<%= form_for(:user, as: :user, url: session_path(:user)) do |f| %>
 
 							<label for="username">Email:

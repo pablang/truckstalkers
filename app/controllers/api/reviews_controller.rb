@@ -16,11 +16,9 @@ class Api::ReviewsController < ApplicationController
       :service_rating,
       :value_rating,
       :cleanliness_rating,
-      :food_rating,
-      :name
-    ).merge(
-      # substitute 1 for current_user.id
-      user_id: 1,
-    )
+      :food_rating
+      ).merge(
+      user_id: current_user.id,
+      )
   end
 end

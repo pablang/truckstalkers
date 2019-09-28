@@ -5,9 +5,9 @@ class TrucksController < ApplicationController
   end
 
   def show
-    @truck = Truck.friendly.find(params[:id])
+    @truck = Truck.includes(:photos, :reviews).friendly.find(params[:id])
     @reviews_summary = @truck.reviews_summary
-    @reviews = Review.where(truck_id: params[:id]).order(created_at: :desc).limit(5)
+    @reviews = @truck.reviews.order(created_at: :desc).limit(5)
     @review = Review.new
     @photos = @truck.photos.order(updated_at: :desc)
     @address = @truck.address.tr(',' , '').tr(' ', '+') if @truck.address
@@ -18,7 +18,4 @@ class TrucksController < ApplicationController
     params.require(:truck).permit(:title, :body, :category_list)
   end
 
-
 end
-# Completed 200 OK in 123ms (Views: 23.8ms | ActiveRecord: 32.1ms)\
-# Completed 200 OK in 103ms (Views: 91.0ms | ActiveRecord: 5.4ms)
