@@ -59,7 +59,7 @@
 						</li>
 						<% end %>
 						<% if @truck.website.present? %>
-						<li><a href="<%= @truck.website %>" target="_blank"  class="listing-links"><i class="fa fa-link"></i> <%= @truck.website %></a></li>
+						<li><a href="<%= @truck.website %>" target="_blank"  class="listing-links"><i class="fa fa-link"></i> <%= @truck.clean_website %></a></li>
 						<% end %>
 					</ul>
 					<div class="clearfix"></div>
@@ -301,7 +301,7 @@
 					<li><i class="sl sl-icon-phone"></i> <%= @truck.phone %></li>
 					<% end %>
 					<% if @truck.website.present? %>
-					<li><i class="sl sl-icon-globe"></i> <a href="#"><%= @truck.website %></a></li>
+					<li><i class="sl sl-icon-globe"></i> <a href="<%= @truck.website %>"><%= @truck.clean_website %></a></li>
 					<% end %>
 					<% if @truck.email.present? %>
 					<li><i class="fa fa-envelope-o"></i> <a href="#"><%= @truck.email %></a></li>

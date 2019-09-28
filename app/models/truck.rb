@@ -36,4 +36,8 @@ class Truck < ApplicationRecord
     self.photos.where(is_logo: false)
   end
 
+  def clean_website
+    self.website.sub(/^https?\:\/\/(www.)?/,'').sub(/\/$/,'')
+  end
+
 end
