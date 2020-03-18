@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem "puma", ">= 3.12.4"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,7 +40,7 @@ gem 'friendly_id', '~> 5.2.4'
 # Use for authentication
 gem 'devise', '~> 4.2'
 # Use for creating admin dashboards
-gem "administrate"
+gem "administrate", ">= 0.13.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -58,7 +58,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'httparty'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'nokogiri'
+  gem "nokogiri", ">= 1.10.8"
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
