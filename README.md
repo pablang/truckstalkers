@@ -18,7 +18,6 @@ To start the local server type the following in the command line:
 
 `rails server`
 
-
 ## Technology used
 
 - Ruby v2.6.3
@@ -42,6 +41,7 @@ To start the local server type the following in the command line:
 
 ## Still to do
 
+- Add user favourites
 - Add menus to each truck
 - Create admin user
 - Create users table
