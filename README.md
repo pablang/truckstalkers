@@ -47,4 +47,4 @@ To start the local server type the following in the command line:
 - Create admin user
 - Create users table
 - Add map on homepage with truck locations for that area
-- TESTING JIRA INTEGRATION
+- TESTING JIRA INTEGRATION 2
