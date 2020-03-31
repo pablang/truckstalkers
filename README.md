@@ -30,6 +30,7 @@ To start the local server type the following in the command line:
 - Kaminari - used for pagination
 - Acts-As-Taggable-On gem - used for creating tags
 - friendly_id gem - used for creating friendly url slugs
+- Jira - for issue tracking
 
 ## Features
 
